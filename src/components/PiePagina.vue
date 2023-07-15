@@ -1,29 +1,24 @@
 <template>
-    <footer class="footer">
-      <p>{{ copyright }}</p>
-    </footer>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        year: new Date().getFullYear(),
-        companyName: 'Mi Empresa'
-      };
-    },
-    computed: {
-      copyright() {
-        return `© ${this.year} ${this.companyName}`;
-      }
-    }
-  };
-  </script>
-  
-  <style>
-  .footer {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
+  <footer :style="{ backgroundColor: footerColor }">
+    <!-- Contenido del pie de página -->{{ msg }}
+  </footer>
+</template>
+
+<script>
+export default {
+  name: 'PiePagina',
+  props: {
+    msg: String,
+    footerColor: String
   }
-  </style>
+};
+</script>
+
+<style>
+.footer {
+  text-align: center;
+  padding: 30px 10px;
+  margin-top: 50px;
+  min-height: 100px;
+}
+</style>
